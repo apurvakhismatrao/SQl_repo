@@ -110,6 +110,12 @@ where department = "IT";
 select SUM(salary) from Employee
 where department = "HR";
 
+select sum(salary) from Employee;
+
+select SUM(salary) as new from Employee
+where department = "Finance" ;
+
+
 
  
  
