@@ -44,13 +44,31 @@ select * from employee where age > any
 select * from employee where age < any
 ( select age from employee where fullname = "James Brown" or fullname = " Linda Jones");
 
+select * from employee where age < all
+( select age from employee where fullname = "James Brown" or fullname = " Linda Jones");
+
 select * from employee where age<26 and age <28;
+
+select * from employee where substring(fullname,2,1) =
+(select
+  substring((select fullname from employee where employeeid= 1010),2,1));
 
 select *, datediff(EndDate, StartDate ) as duration from Projects;
 
-select *, datediff(EndDate, StartDate) as duration from Projects where datediff(EndDate, StartDate)
->all
+select *, datediff(EndDate, StartDate) as duration from Projects 
+where datediff(EndDate, StartDate) >all
 (select datediff(EndDate, StartDate) from projects where datediff(EndDate, StartDate) = 10 or datediff(EndDate, StartDate) =15);
+
+select *, datediff(EndDate, StartDate) as duration from Projects 
+where datediff(EndDate, StartDate) >all
+(select datediff(EndDate, StartDate) from projects where datediff(EndDate, StartDate) = 10 or datediff(EndDate, StartDate) =15);
+
+select *, datediff(EndDate, StartDate) as duration from Projects  where
+datediff(EndDate, StartDate) 
+>all
+(select datediff(EndDate, StartDate) from Projects
+where datediff(EndDate, StartDate)=10 or datediff(EndDate, StartDate)=15 );
+
 
  
 
