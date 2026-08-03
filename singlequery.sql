@@ -72,7 +72,7 @@ where datediff(EndDate, StartDate)=10 or datediff(EndDate, StartDate)=15 );
 
 drop database company11;
 
- 
+
 
 
 
