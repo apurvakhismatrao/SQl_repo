@@ -1,3 +1,4 @@
+
 create database BankingDB_T384_30jul1;
 use BankingDB_T384_30jul1;
 CREATE TABLE Customers
